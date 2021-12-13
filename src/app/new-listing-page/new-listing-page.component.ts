@@ -8,10 +8,6 @@ import { Router } from '@angular/router';
 })
 export class NewListingPageComponent implements OnInit {
 
-  name: string= '';
-  description: string = '';
-  price: string = '';
-
   constructor(
     private router: Router
   ) { }

@@ -10,6 +10,8 @@ import { Listing } from '../types';
 export class ListingDataFormComponent implements OnInit {
 
   @Input() buttonText: any;
+  @Input() listingData: any;
+
   @Output() onSubmit = new EventEmitter<Listing>();
   name: string= '';
   description: string = '';
@@ -20,6 +22,11 @@ export class ListingDataFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if(this.listingData) {
+      this.name = this.listingData.name;
+      this.description = this.listingData.description;
+      this.price = this.listingData.price;
+    }
   }
 
   onSave(): void {
@@ -29,7 +36,6 @@ export class ListingDataFormComponent implements OnInit {
       description: this.description,
       price: Number(this.price)
     });
-    this.router.navigateByUrl('/my-listings');
   }
 
 }
